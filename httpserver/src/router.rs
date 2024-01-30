@@ -15,13 +15,13 @@ impl Router {
                         // if the route begins with /api, invoke Web service
                         "api" => {
                             let resp: HttpResponse =
-                                WebServiceHandler::handler(&req);
+                                WebServiceHandler::handle(&req);
                             let _ = resp.send_response(stream);
                         }
                         // Else, invoke static page handler
                         _ => {
                             let resp: HttpResponse =
-                                StaticPageHandler::handler(&req);
+                                StaticPageHandler::handle(&req);
                             let _ = resp.send_response(stream);
                         }
                     }
@@ -29,7 +29,7 @@ impl Router {
             },
             // If method is not GET request, return 404 page
             _ => {
-                let resp: HttpResponse = PageNotFoundHandler::handler(&req);
+                let resp: HttpResponse = PageNotFoundHandler::handle(&req);
                 let _ = resp.send_response(stream);
             }
         }

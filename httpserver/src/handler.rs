@@ -49,7 +49,7 @@ impl Handler for StaticPageHandler {
                 Some(contents) => {
                     let mut map: HashMap<&str, &str> = HashMap::new();
                     if path.ends_with(".css") {
-                        map.insert("Content-Type", "test/css");
+                        map.insert("Content-Type", "text/css");
                     } else if path.ends_with(".js") {
                         map.insert("Content-type", "text/javascript");
                     } else {
@@ -75,4 +75,23 @@ impl  WebServiceHandler {
         orders
     }
 }
-// Imple
+// Implement the Handler trait
+impl Handler for WebServiceHandler {
+    fn handle(req: &HttpRequest) -> HttpResponse {
+        let http::httprequest::Resource::Path(s) = &req.resource;
+
+        // Parse the URI
+        let route: Vec<&str> = s.split("/").collect();
+        // if route if /api/shipping/orders, return json
+        match route[2] {
+            "shipping" if route.len() > 2 && route[3] == "orders" => {
+                let body = Some(serde_json::to_string(
+                    &Self::load_json()).unwrap());
+                let mut headers: HashMap<&str, &str> = HashMap::new();
+                headers.insert("Content-Type", "application/json");
+                HttpResponse::new("200", Some(headers), body)
+            }
+            _ => HttpResponse::new("404", None, Self::load_file("404.html"))
+        }
+    }
+}
