@@ -7,7 +7,16 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tcpclient/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tcpserver/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ezytutors/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ezytutors/tutor-nodb/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tcp-http-server/http/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tcp-http-server/httpserver/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tcp-http-server/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tcp-http-server/tcpclient/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tcp-http-server/tcpserver/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/ezytutors/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/tcp-http-server/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
